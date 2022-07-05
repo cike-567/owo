@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>2333</title>
+
+    <style>
+        /*背景图设置*/
+        #beijing-0 {
+            /*背景图位置*/
+            /*定位方式*/
+            position: fixed;
+            /*具体位置，上右下左*/
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            /*背景图次序*/
+            z-index: -2;
+            /*图片大小*/
+            background-size: cover;
+            /*是否重复*/
+            background-repeat: no-repeat;
+            /*是否跟随滚动*/
+            background-attachment: fixed;
+            /*图片位置*/
+            background-position: 50% 50%;
+            /*图片地址*/
+            background-image: url('image/background.jpg');
+        }
+        /*背景透明遮罩*/
+        #beijing-1{
+            /*定位方式*/
+            position: fixed;
+            /*具体位置，上右下左*/
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            /*背景颜色和透明度*/
+            background-color:rgb(129,129,129,0.3);
+        }
+        /*大透明框*/
+        .kuang-0{
+            /*定位方式*/
+            position: relative;
+            /*内边距*/
+            padding: 10px 10px 80px;
+            /*外边距*/
+            margin: 20px 0 50px;
+            /*圆角*/
+            border-radius: 30px;
+            /*背景颜色和透明度*/
+            background-color:rgb(129,129,129,0.3);
+        }
+        /*文字粉色*/
+        .fense{
+            /*去掉下划线*/
+            text-decoration: none;
+
+            color: rgba(255,64,129);
+        }
+        /*文字白色*/
+        .baise{
+            color: rgba(255,255,255);
+        }
+        /*文字黑色*/
+        .hei{
+            color: rgba(0,0,0);
+        }
+        /*进度条框*/
+        .jindutiao-0{
+            /*高度*/
+            height:15px;
+            /*宽度*/
+            width:100%;
+            /*圆角*/
+            border-radius: 15px;
+            /*背景透明*/
+            background-color:rgb(250,250,250,0.3);
+        }
+        /*进度条内容*/
+        .jindutiao-1{
+            /*圆角*/
+            border-radius: 15px;
+            /*高度*/
+            height:inherit;
+            /*宽度*/
+            width:30%;
+            /*颜色*/
+            background-color:rgb(250,250,250);
+        }
+        /*并排块*/
+        .bingpai{
+            /*并排*/
+            display: flex;
+            /*居中并排*/
+            justify-content: center;
+        }
+        /*战斗力块*/
+        .kuaishezhi-0{
+            /*宽度*/
+            width:25%;
+            /*左右间距*/
+            margin-right:30px;
+            margin-left:30px;
+        }
+        /*咱生活的地方*/
+        .kuaishezhi-1{
+            /*圆角*/
+            border-radius: 15px;
+            /*宽度*/
+            width:initial;
+            /*文字水平居中*/
+            text-align: center;
+            /*框上下内边距*/
+            padding: 5px 0;
+            /*框左右外边距*/
+            margin: 0 10px;
+            border-bottom-style: solid;
+            border-color: #28a4d3;
+            /*透明背景*/
+            background-color:rgb(250,250,250,0.3);
+        }
+        /*文章*/
+        .kuaishezhi-2{
+            /*圆角*/
+            border-radius: 15px;
+            /*宽度*/
+            width:90%;
+            /*框上下内边距*/
+            padding: 5px 20px;
+            /*块居中和上下外边距*/
+            margin: 10px auto;
+            /*透明背景*/
+            background-color:rgb(250,250,250,0.3);
+        }
+        /*文字水平居中*/
+        .kuaishezhi-3{
+            /*文字水平居中*/
+            text-align: center;
+        }
+        /*文字垂直居中*/
+        .kuaishezhi-4{
+            line-height: 50px;
+            height: 50px;
+        }
+        .kuaishezhi-5{
+            /*文字水平居中*/
+            text-align: center;
+        }
+        /*侧栏*/
+        .celan{
+            /*宽度*/
+            width:190px;
+            height:600px;
+            /*圆角*/
+            border-radius: 15px;
+            /*外边距*/
+            margin: 80px 50px 0 50px;
+            /*透明背景*/
+            background-color:rgb(129,129,129,0.3);
+        }
+        /*头像*/
+        .touxiang{
+            /*头像大小*/
+            width:190px;
+            height:190px;
+            /*圆角*/
+            border-radius: 15px;
+        }
+        /*导航块*/
+        .daohang{
+            /*大小*/
+            width:170px;
+            height:50px;
+            margin: 10px auto 10px auto;
+            /*圆角*/
+            border-radius: 5px;
+            border-bottom-style: solid;
+            border-color: #28a4d3;
+            /*透明背景*/
+            background-color:rgb(250,250,250,0.3);
+            color: white;
+        }
+        p.kuaishezhi-3:hover {
+            background-color: #28a4d3;
+        }
+        div.kuaishezhi-1:hover {
+            background-color: #28a4d3;
+        }
+        div.biaoji:hover .jk{
+            display: block;
+        }
+        .jk{
+            /*圆角*/
+            border-radius: 10px;
+            background-color:rgb(0,0,0,0.7);
+            padding: 0 15px;
+            position: absolute;
+            left: 150px;
+            display: none;
+        }
+        .biaoji{
+            position: relative;
+        }
+        .xiahuaxian{
+            text-decoration: none;
+        }
+        .kuandu{
+            width: 15%;
+        }
+    </style>
+
+</head>
+<body style="display: flex;">
+<!--背景图和背景透明框-->
+<div id="beijing-0">
+    <div id="beijing-1"></div>
+</div>
+<!--左侧栏-->
+<div class="celan">
+    <div>
+        <img src="image/logo.jpg" class="touxiang">
+    </div>
+    <p class="kuaishezhi-5 baise">綾 川 星 凛</p>
+    <p class="kuaishezhi-5 baise">AyagawaSeirin</p>
+    <p class="kuaishezhi-5 baise">「其生若浮，其死若休」</p>
+    <a href="2333.html" class="xiahuaxian">
+        <div class="daohang">
+            <p class="kuaishezhi-3 kuaishezhi-4">博客</p>
+        </div>
+    </a>
+    <a href="2333.html" class="xiahuaxian">
+        <div class="daohang">
+            <p class="kuaishezhi-3 kuaishezhi-4">Github</p>
+        </div>
+    </a>
+    <a href="2333.html" class="xiahuaxian">
+        <div class="daohang">
+            <p class="kuaishezhi-3 kuaishezhi-4">Bilibili</p>
+        </div>
+    </a>
+    <a href="2333.html" class="xiahuaxian">
+        <div class="daohang">
+            <p class="kuaishezhi-3 kuaishezhi-4">关于</p>
+        </div>
+    </a>
+</div>
+
+<!--主要内容-->
+<main>
+    <!--大透明框-->
+    <div class="kuang-0" style="float: left;">
+        <p class="baise">
+            你好，这里是綾川星凛，普通的女生一枚~<br>
+            坐标广东深圳，退役jk。对信息技术以及ACG文化感兴趣。<br>
+            更多关于咱的信息请<a href="2333.html" class="fense">点击这里。</a><br>
+            How lucky to meet you!
+        </p>
+        <h1><span class="fense"># </span>战斗力</h1>
+        <div class="bingpai">
+            <div class="kuaishezhi-0 baise">
+                <div class="biaoji">
+                    <p>HTML/CSS</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>制作网站的能力:非常菜</p>
+                    </div>
+                </div>
+                <div class="biaoji">
+                    <p>萌属性</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>真的非常可爱√</p>
+                    </div>
+                </div>
+                <div class="biaoji">
+                    <p>社交</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>对他人的情感深度</p>
+                    </div>
+                </div>
+            </div>
+            <div class="kuaishezhi-0 baise">
+                <div class="biaoji">
+                    <p>PHP</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>赞美世界上最好的语言的能力</p>
+                    </div>
+                </div>
+                <div class="biaoji">
+                    <p>搞事情</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>让事情发生的能力</p>
+                    </div>
+                </div>
+                <div class="biaoji">
+                    <p>耐心</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>做事情的耐心程度</p>
+                    </div>
+                </div>
+            </div>
+            <div class="kuaishezhi-0 baise">
+                <div class="biaoji">
+                    <p>JavaScript</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>现用现学的能力:我太蔡了</p>
+                    </div>
+                </div>
+                <div class="biaoji">
+                    <p>情感</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>对他人的情感深度</p>
+                    </div>
+                </div>
+                <div class="biaoji">
+                    <p>世界</p>
+                    <div class="jindutiao-0">
+                        <div class="jindutiao-1"></div>
+                    </div>
+                    <div class="jk">
+                        <p>对这个世界热爱的程度</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1><span class="fense"># </span>咱生活的地方</h1>
+        <div class="bingpai">
+            <div class="kuandu">
+                <a href="2333.html" class="xiahuaxian baise">
+                    <div class="kuaishezhi-1">
+                        <p>Twitter</p>
+                    </div>
+                </a>
+            </div>
+            <div class="kuandu">
+                <a href="2333.html" class="xiahuaxian baise">
+                    <div class="kuaishezhi-1">
+                        <p>Telehram</p>
+                    </div>
+                </a>
+            </div>
+            <div class="kuandu">
+                <a href="2333.html" class="xiahuaxian baise">
+                    <div class="kuaishezhi-1">
+                        <p>Github</p>
+                    </div>
+                </a>
+            </div>
+            <div class="kuandu">
+                <a href="2333.html" class="xiahuaxian baise">
+                    <div class="kuaishezhi-1">
+                        <p>Bilinili</p>
+                    </div>
+                </a>
+            </div>
+            <div class="kuandu">
+                <a href="2333.html" class="xiahuaxian baise">
+                    <div class="kuaishezhi-1">
+                        <p>Mail</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <h1><span class="fense"># </span>文章</h1>
+        <div>
+            <div>
+                <a href="2333.html" class="xiahuaxian hei">
+                    <div class="kuaishezhi-2">
+                        <h3>[总结]可以在中国大陆境内使用的境外手机卡资料整理</h3>
+                        <p>
+                            众所周知，中国大陆+86手机卡需要实名认证，因此造成许多奇奇怪怪的麻烦。此文章总结了可以在中国大陆境内使用的境外实体手机卡，供大家参考。
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="2333.html" class="xiahuaxian hei">
+                    <div class="kuaishezhi-2">
+                        <h3>利用jsDelivr白嫖全球超高速静态资源访问服务！</h3>
+                        <p>
+                            因为服务器在国外&服务器带宽小，导致静态资源请求速度慢，最终导致全站访问速度被拖慢，是站长们要面对的问题。最常用的解决方案是使用国内IDC厂商提供的对象存储(镜像回源)+CDN来提升静态资源访问速度，但这难免会产生费用。
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <h1><span class="fense"># </span>作品</h1>
+        <div>
+            <div>
+                <a href="2333.html" class="xiahuaxian hei">
+                    <div class="kuaishezhi-2">
+                        <h3>UploadGithubForTypecho！</h3>
+                        <p>
+                            Typecho插件，将文章附件上传至Github，并使用jsDelivr进行文件访问加速。
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="2333.html" class="xiahuaxian hei">
+                    <div class="kuaishezhi-2">
+                        <h3>BilibiliFollowPage！</h3>
+                        <p>
+                            基于handsome主题的B站追番列表独立页面作品
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="2333.html" class="xiahuaxian hei">
+                    <div class="kuaishezhi-2">
+                        <h3>ThreebodySpace</h3>
+                        <p>
+                            三体宇宙网站(threebody.space)
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="kuaishezhi-3 baise">
+            <p style="font-size: 2.5em;">綾 川 星 凛 @ A y a g a w a S e i r i n</p>
+            <p style="font-size: 1.75em;">一 切 都 是 命 运 石 之 门 的 选 择 ， 顺 其 自 然 吧</p>
+            <p style="font-size: 1.5em;">©2020 Seirin | Made with love by Seirin | BG: <a href="https://www.pixiv.net/artworks/56652667" style="color: #28a4d3">Pixiv</a></p>
+        </div>
+    </div>
+
+
+
+</main>
+
+
+
+</body>
+</html>
